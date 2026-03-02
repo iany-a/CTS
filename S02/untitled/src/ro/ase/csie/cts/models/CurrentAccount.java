@@ -27,14 +27,10 @@ public class CurrentAccount extends BankAccount {
     }
 
     @Override
-    public void withdraw(double amount) {
+    public void withdraw(double amount) throws InsufficientFundsException {
         //do not use throws as it breaks the "contract" between the parent class and this class
         if ((this.balance - amount) < 0){
-            try {
                 throw new InsufficientFundsException("No more money!");
-            } catch (InsufficientFundsException e) {
-                throw new RuntimeException(e);
-            }
         }
 
         this.balance -= amount;
@@ -42,7 +38,7 @@ public class CurrentAccount extends BankAccount {
     }
 
     @Override
-    public void transfer(Account destination, double amount) {
+    public void transfer(Account destination, double amount) throws InsufficientFundsException {
         this.withdraw(amount);
         destination.deposit(amount);
     }

@@ -25,19 +25,15 @@ public class SavingsAccount extends BankAccount implements Profitable {
     }
 
     @Override
-    public void withdraw(double amount) {
+    public void withdraw(double amount) throws InsufficientFundsException {
         if (this.balance - amount < SavingsAccount.MIN_BALANCE){
-            try {
                 throw new InsufficientFundsException();
-            } catch (InsufficientFundsException e) {
-                throw new RuntimeException(e);
-            }
         }
         this.balance -= amount;
     }
 
     @Override
-    public void transfer(Account destination, double amount) {
+    public void transfer(Account destination, double amount) throws InsufficientFundsException {
         this.withdraw(amount);
         destination.deposit(amount);
     }
