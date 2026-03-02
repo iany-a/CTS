@@ -3,6 +3,8 @@ package ro.ase.csie.cts.main;
 import ro.ase.csie.cts.exceptions.IllegalTransferException;
 import ro.ase.csie.cts.exceptions.InsufficientFundsException;
 import ro.ase.csie.cts.models.Account;
+import ro.ase.csie.cts.models.Bank;
+import ro.ase.csie.cts.models.enums.AccountType;
 
 public class TestApp {
 	
@@ -20,7 +22,7 @@ public class TestApp {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		testIllegalTransfer();
+		//testIllegalTransfer();
 		
 		try {
 			testInsufficientFunds();
@@ -30,6 +32,14 @@ public class TestApp {
 		}
 		
 		//Account account = new Account();
+
+		Bank acme = new Bank("ACME");
+		acme.openAccount(AccountType.SAVINGS);
+		acme.openAccount(AccountType.CURRENT);
+
+		System.out.println("The end");
+
+
 	}
 
 }

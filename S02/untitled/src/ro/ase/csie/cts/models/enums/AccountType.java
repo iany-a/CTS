@@ -1,5 +1,5 @@
 package ro.ase.csie.cts.models.enums;
 
-public enum AccountType{
+public enum AccountType {
     CURRENT, SAVINGS
 }
