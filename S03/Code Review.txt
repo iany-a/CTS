@@ -1,0 +1,22 @@
+Code Review:
+
+initial story:
+-the objective of the given class is to determine the final price (with discounts) for a product
+-there are 4 different types of products, each having different discounts
+-there is a bonus discount for 'old clients' to our store, based on account age
+
+Stage1:
+-naming convention - rename functions and variable to give more context on their purpose
+    ->using long descriptive names is recommended, even though it will increase the length of the lines
+-no magic numbers - replace with final static variables
+    ->we are replacing all magic numbers with static final variables, however this will be further changed in later stages
+
+Stage2:
+-improve the solution by implementing enums (classes with attributes) for product types and discounts
+-replace if/else cascade with a switch
+
+Stage3:
+-refactor the function complexity - separate functions via single responsibility principle
+-follow keep it simple and stupid principle
+
+
