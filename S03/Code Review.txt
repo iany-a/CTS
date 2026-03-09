@@ -20,3 +20,20 @@ Stage3:
 -follow keep it simple and stupid principle
 
 
+Seminar4
+
+first lab test on March 30th
+next week 16th March 2-3 design patterns
+23rd March rest
+
+Test criteria:
+Creational design patterns
+-Factory Method
+-Builder
+-Prototype - it's about clone
+-Singleton
+
+Stage 4:
+-follow DIP = remove all dependencies
+
+
