@@ -6,21 +6,21 @@ import ro.ase.csie.cts.iany.almasanu.AS.Enums.Type;
 
 public class Main {
     public static void main(String[] args) {
-        DrinkCustomization drink1 = new DrinkCustomization.DrinkBuilder()
+        DrinkCustomization drink1 = new DrinkCustomization.DrinkBuilder("Drink 1")
                 .addSize(Size.Large)
                 .addMilk(Milk.Almond)
-                .addNoToppings(3)
+                .addToppings(Toppings.Caramel)
                 .build();
 
-        DrinkCustomization drink2 = new DrinkCustomization.DrinkBuilder()
+        DrinkCustomization drink2 = new DrinkCustomization.DrinkBuilder("Drink 2")
                 .addType(Type.Cappuccino)
                 .addSugarSpoons(0)
-                .addNoToppings(0)
+                .addToppings(Toppings.Chocolate)
                 .build();
 
-        DrinkCustomization drink3 = new DrinkCustomization.DrinkBuilder()
+        DrinkCustomization drink3 = new DrinkCustomization.DrinkBuilder("Drink 3")
                 .addMilk(Milk.Skimmed)
-                .addNoToppings(2)
+                .addToppings(Toppings.OreoCrumbs)
                 .build();
 
 
@@ -28,7 +28,9 @@ public class Main {
 
         //drink3.addSize(Size.Medium); - not going to work once the object is created
 
-
+        drink1.getDrinkDescription();
+        drink2.getDrinkDescription();
+        drink3.getDrinkDescription();
 
 
     }

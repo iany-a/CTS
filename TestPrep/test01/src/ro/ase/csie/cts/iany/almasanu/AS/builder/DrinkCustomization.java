@@ -4,16 +4,17 @@ import ro.ase.csie.cts.iany.almasanu.AS.Enums.Type;
 import ro.ase.csie.cts.iany.almasanu.AS.Enums.Milk;
 import ro.ase.csie.cts.iany.almasanu.AS.Enums.Size;
 
-public class DrinkCustomization {
+public class DrinkCustomization extends AbstractDrink {
     private Size size;
     private Type type;
     private Milk milk;
-    int noSugarSpoons;
-    int noToppings;
+    private int noSugarSpoons;
+    private Toppings toppings;
 
-    private DrinkCustomization(){
-
+    protected DrinkCustomization(String name) {
+        super(name);
     }
+
 
     public Size getSize() {
         return size;
@@ -27,20 +28,28 @@ public class DrinkCustomization {
         return milk;
     }
 
-    public int getNoSugarSpoons() {
-        return noSugarSpoons;
+
+    @Override
+    public void getDrinkDescription() {
+        System.out.println(this.toString());
     }
 
-    public int getNoToppings() {
-        return noToppings;
+    @Override
+    public int getNoOfSugarSpoons() {
+        return this.noSugarSpoons;
+    }
+
+    @Override
+    public String getToppings() {
+        return this.toppings.toString();
     }
 
     public static class DrinkBuilder{
 
         DrinkCustomization drink;
 
-        public DrinkBuilder(){
-            this.drink = new DrinkCustomization();
+        public DrinkBuilder(String name){
+            this.drink = new DrinkCustomization(name);
         }
 
         public DrinkBuilder addSize(Size size){
@@ -63,8 +72,8 @@ public class DrinkCustomization {
             return this;
         }
 
-        public DrinkBuilder addNoToppings(int value){
-            this.drink.noToppings = value;
+        public DrinkBuilder addToppings(Toppings toppings){
+            this.drink.toppings = toppings;
             return this;
         }
 
@@ -75,5 +84,14 @@ public class DrinkCustomization {
 
     }
 
-
+    @Override
+    public String toString() {
+        return "DrinkCustomization{" +
+                "size=" + size +
+                ", type=" + type +
+                ", milk=" + milk +
+                ", noSugarSpoons=" + noSugarSpoons +
+                ", toppings=" + toppings +
+                '}';
+    }
 }
