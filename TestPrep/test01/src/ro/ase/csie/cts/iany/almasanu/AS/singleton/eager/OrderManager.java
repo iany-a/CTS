@@ -10,7 +10,7 @@ public class OrderManager implements IOrderLogging {
         System.out.println("Creating order manager...");
     }
 
-    public static synchronized OrderManager getOrder(){
+    public static synchronized OrderManager getOrderManager(){
         return orderManager;
     }
 

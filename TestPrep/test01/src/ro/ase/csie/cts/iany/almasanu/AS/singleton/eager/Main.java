@@ -4,8 +4,8 @@ import static java.lang.String.valueOf;
 
 public class Main {
     public static void main(String[] args) {
-        OrderManager o1 = OrderManager.getOrder();
-        OrderManager o2 = OrderManager.getOrder();
+        OrderManager o1 = OrderManager.getOrderManager();
+        OrderManager o2 = OrderManager.getOrderManager();
 
         if (o1 == o2) System.out.println("Using the same order manager.");
         else System.out.println("Using different order managers.");

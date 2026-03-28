@@ -4,38 +4,48 @@ import ro.ase.csie.cts.iany.almasanu.AS.singleton.IOrderLogging;
 
 public class OrderManager implements IOrderLogging {
 
-    private final int noOrders;
-    //private DrinkType drinkType = DrinkType.Espresso;
-    //private Milk milk = Milk.Whole;
-    //private Size size = Size.Medium;
+    private static int noOrders;
+
 
     private static OrderManager orderManager = null;
     private OrderManager(){
-        this.noOrders = 0;
+        noOrders = 0;
 
     }
 
-   public static synchronized OrderManager getOrder(){
+   public static synchronized OrderManager getOrderManager(){
         if (orderManager == null){
             orderManager = new OrderManager();
         }
-//        this.noOrders +=1;
         return orderManager;
    }
 
     @Override
     public int getNoOfOrders() {
-        //System.out.println("Number of orders " + noOrders);
-        return this.noOrders;
+        return noOrders;
     }
 
     @Override
     public void logNewOrder(String drinkType) {
         System.out.println("New order for: " + drinkType);
+        createOrder();
     }
 
     @Override
     public void logCancelOrder(String drinkType) {
         System.out.println("Order canceled for " +drinkType);
+        cancelOrder();
     }
+
+    private static void createOrder(){
+        ++noOrders;
+    }
+
+    private static void cancelOrder(){
+        if (noOrders > 0) --noOrders;
+        else noOrders = 0;
+    }
+
+
+
 }
