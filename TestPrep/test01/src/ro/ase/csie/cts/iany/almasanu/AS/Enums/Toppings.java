@@ -1,4 +1,4 @@
-package ro.ase.csie.cts.iany.almasanu.AS.builder;
+package ro.ase.csie.cts.iany.almasanu.AS.Enums;
 
 public enum Toppings {
     Caramel,
