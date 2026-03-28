@@ -9,7 +9,7 @@ public class GameLogger implements ILogging {
 
     private String fileName;
 
-    public GameLogger() {
+    private GameLogger() {
         System.out.println("Creating the game log file: game.log");
         this.fileName = "game.log";
     }
