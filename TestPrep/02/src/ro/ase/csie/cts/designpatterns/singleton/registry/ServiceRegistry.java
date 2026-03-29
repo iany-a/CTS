@@ -1,5 +1,7 @@
 package ro.ase.csie.cts.designpatterns.singleton.registry;
 
+import ro.ase.csie.cts.designpatterns.singleton.IService;
+
 public enum ServiceRegistry implements IService {
     LOAD("Load","Loads file", "L"),
     SAVE("Save", "Saves file", "S"),
