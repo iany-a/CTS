@@ -1,0 +1,202 @@
+Singleton
+
+Lazy
+
+public class Singleton{
+    private Singleton singleton = null;
+
+    private String name;
+
+    private Singleton(){
+    }
+    
+    public static synchronized Singleton getInstance(){
+        if (singleton == null) singleton = new Singleton();
+        return singleton;
+    }
+
+}
+
+Main:
+Singleton s1 = Singleton.getInstance();
+Singleton s2 = Singleton.getInstance();
+
+s1 = s2
+
+Eager
+
+public class Singleton{
+    private Singleton singleton = new Singleton();
+
+    private String name;
+
+    private Singleton(){
+    }
+
+    public static synchronized Singleton getInstance(){
+        return singleton;
+    }
+}
+
+Singleton s1 = Singleton.getInstance();
+Singleton s2 = Singleton.getInstance();
+
+s1 = s2
+
+
+Registry
+
+public enum Singleton{
+    OPTION1("opt1"),
+    OPTION2("opt2"),
+    OPTION3("opt3"),
+    OPTION4("opt4");
+
+    private String name;
+
+    private Singleton(String name){
+        this.name = name;
+    }
+}
+
+Main:
+
+Singleton s1 = Singleton.OPTION1;
+Singleton s2 = Singleton.OPTION2;
+Singleton s1 = Singleton.OPTION1;
+
+s1 != s2
+s1 = s3
+
+
+
+Builder
+
+public class Outer{
+    //private String name; //inherited
+    private String desc;
+    private int value;
+    
+    protected Outer(String name){
+        super(name);
+    }
+
+    //public getters
+
+    public static class InnerBuilder{
+        Outer outer;
+
+        public InnerBuilder(String name){
+            this.outer = new Outer(name);
+        }
+
+
+        public InnerBuilder addDesc(String desc){
+            this.desc = desc;
+            return this;
+        }
+
+        public InnerBuilder addValue(int value){
+            this.value = value;
+            return this;
+        }
+
+        public InnerBuilder build(){
+            return this.outer;
+        }
+    }
+}
+
+Directory:
+
+public class OuterDirector{
+    public static Outer createOuterWithDirector1(){
+        return new Outer.InnerBuilder("Outer with director 1").addDesc("This object was created using template 1 in director").build();
+    }
+    public static Outer createOuterWithDirector2(){
+        return new Outer.InnerBuilder("Outer with director 2").addDesc("This object was created using template 2 in director").addValue(100).build();
+    }
+}
+
+
+
+Main:
+
+Outer o1 = new Outer.InnerBuilder("o1").addDesc("desc1").addValue(1).build();
+Outer o2 = new Outer.InnerBuilder("o2).addValue("2).build();
+Outer o3 = OuterDirector.createOuterWithDirector1();
+Outer o4 = OuterDirector.createOuterWithDirector2();
+
+
+Factory
+
+public class Model1{
+    //String name; //inherited
+    private int var1;
+
+    public Model1(String name, int var1){
+        this.name = name;
+        this var1 = var1;
+    }
+}
+
+public class Model2{
+    //String name; //inherited
+    private String var2;
+    public Model2(String name, String var2){
+        this.name = name;
+        this.var2 = var2;
+    }
+}
+
+ENUM:
+
+public enum ModelType{
+    MODEL1,
+    MODEL2
+} 
+
+ModelFactory:
+
+public class ModelFactory{
+    public static AbstractModel getModel(ModelType type, String name){
+        switch(type){
+            case MODEL1 -> new Model1(name, 1);
+            case MODEL2 -> new Model2(name, "B");
+            default -> throw new UnsupportedOperationException("Invalid model");
+        }
+    }
+}
+
+Main:
+
+AbstractModel m1 = ModelFactory.getModel(ModelType.MODEL1, "model 1");
+AbstractModel m2 = ModelFactory.getModel(ModelType.MODEL2, "model 2");
+
+
+
+Prototype
+
+//code for regular class that extends Cloneable, with private attributes and public constructor with name param
+//ArrayList<Integer> values;
+//int[] intVector;
+//init values in a param constructor
+//private default constructor
+//override the clone() method
+
+protected Object clone() throws CloneNotSupportedException{
+    Prototype copy = new Prototype(); //default ctor call
+    copy.var1 = this.var1;
+    copy.var2 = this.var2;
+    ...
+    copy.values = (ArrayList<Integer>) this.values.clone(); //for array list collection
+    copy.intVector = Arrays.copyOf(this.intVector, this.intVector.length); //for arrays
+    return copy;
+}
+
+Main:
+
+Model1 m1 = new Model1 
+
+
+
