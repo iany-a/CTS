@@ -32,7 +32,8 @@ public class SocialPost implements Cloneable{
         SocialPost copy = new SocialPost();
         copy.author = this.author;
         copy.content = this.content;
-        copy.hashtags = new ArrayList<String>(this.hashtags);
+        //copy.hashtags = new ArrayList<String>(this.hashtags);
+        copy.hashtags = (ArrayList<String>) this.hashtags.clone();
         System.out.println("Copy done.");
         return copy;
     }

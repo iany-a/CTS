@@ -25,6 +25,10 @@ public class Main {
                 .build();
 
 
+        DrinkCustomization drink4 = DrinkDirector.createDrinkWithDirector();
+        DrinkCustomization drink5 = DrinkDirector.createDrinkWithDirector2();
+
+
         System.out.println(drink3.getMilk());
 
         //drink3.addSize(Size.Medium); - not going to work once the object is created
@@ -32,6 +36,8 @@ public class Main {
         drink1.getDrinkDescription();
         drink2.getDrinkDescription();
         drink3.getDrinkDescription();
+        drink4.getDrinkDescription();
+        drink5.getDrinkDescription();
 
 
     }

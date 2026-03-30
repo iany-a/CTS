@@ -16,19 +16,16 @@ public class DrinkCustomization extends AbstractDrink {
         super(name);
     }
 
-
+    //getters
     public Size getSize() {
         return size;
     }
-
     public Type getDrinkType() {
         return type;
     }
-
     public Milk getMilk() {
         return milk;
     }
-
 
     @Override
     public void getDrinkDescription() {
@@ -46,43 +43,33 @@ public class DrinkCustomization extends AbstractDrink {
     }
 
     public static class DrinkBuilder{
-
         DrinkCustomization drink;
-
         public DrinkBuilder(String name){
             this.drink = new DrinkCustomization(name);
         }
-
         public DrinkBuilder addSize(Size size){
             this.drink.size = size;
             return this;
         }
-
         public DrinkBuilder addType(Type type){
             this.drink.type = type;
             return this;
         }
-
         public DrinkBuilder addMilk(Milk milk){
             this.drink.milk = milk;
             return this;
         }
-
         public DrinkBuilder addSugarSpoons(int value){
             this.drink.noSugarSpoons = value;
             return this;
         }
-
         public DrinkBuilder addToppings(Toppings toppings){
             this.drink.toppings = toppings;
             return this;
         }
-
         public DrinkCustomization build(){
             return this.drink;
         }
-
-
     }
 
     @Override

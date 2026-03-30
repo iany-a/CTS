@@ -82,6 +82,7 @@ public class Outer{
     }
 
     //public getters
+    //no setters
 
     public static class InnerBuilder{
         Outer outer;
@@ -196,7 +197,10 @@ protected Object clone() throws CloneNotSupportedException{
 
 Main:
 
-Model1 m1 = new Model1 
+Model1 m1 = new Model1("name1");
+Model m2 = m1.clone();
+
+
 
 
 
