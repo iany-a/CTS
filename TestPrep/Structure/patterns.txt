@@ -162,7 +162,7 @@ ModelFactory:
 
 public class ModelFactory{
     public static AbstractModel getModel(ModelType type, String name){
-        switch(type){
+        return switch(type){
             case MODEL1 -> new Model1(name, 1);
             case MODEL2 -> new Model2(name, "B");
             default -> throw new UnsupportedOperationException("Invalid model");
