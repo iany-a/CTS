@@ -88,17 +88,17 @@ public class Outer{
         Outer outer;
 
         public InnerBuilder(String name){
-            this.outer = new Outer(name);
+            this.Outer.outer = new Outer(name);
         }
 
 
         public InnerBuilder addDesc(String desc){
-            this.desc = desc;
+            this.Outer.desc = desc;
             return this;
         }
 
         public InnerBuilder addValue(int value){
-            this.value = value;
+            this.Outer.value = value;
             return this;
         }
 
