@@ -5,6 +5,7 @@ public class EntryDoor {
 	
 	public void close(){
 		this.isClosed = true;
+		System.out.println("Closed entry door.");
 	}
 	
 	public void open(){

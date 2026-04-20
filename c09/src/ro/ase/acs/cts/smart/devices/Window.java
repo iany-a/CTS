@@ -5,6 +5,7 @@ public class Window {
 	
 	public void close(){
 		this.isClosed = true;
+		System.out.println("Closed windows.");
 	}
 	
 	public void open(){

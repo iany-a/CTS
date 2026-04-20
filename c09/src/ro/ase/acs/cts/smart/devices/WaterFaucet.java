@@ -5,6 +5,7 @@ public class WaterFaucet {
 	
 	public void close(){
 		this.isClosed = true;
+		System.out.println("Closed water faucet.");
 	}
 	
 	public void open(){

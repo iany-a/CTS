@@ -5,6 +5,7 @@ public class WashingMachine {
 	
 	public void stop(){
 		this.isStopped = true;
+		System.out.println("Stopped washing machine.");
 	}
 	
 	public void start(){
