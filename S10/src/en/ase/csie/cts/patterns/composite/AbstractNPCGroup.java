@@ -1,0 +1,8 @@
+package en.ase.csie.cts.patterns.composite;
+
+public abstract class AbstractNPCGroup implements INPCActions, IGroupActions{
+    public abstract void addItem(AbstractNPCGroup item);
+    public abstract void removeItem(AbstractNPCGroup item);
+    public abstract AbstractNPCGroup getItem(int index);
+
+}
